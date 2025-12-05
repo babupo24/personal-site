@@ -9,27 +9,67 @@
         content="Personal website of Dr. Babu Pokhrel, experimental and computational physicist specializing in Monte Carlo simulations, detector physics, nuclear/particle interactions, and scientific computing.">
     <style>
         body {
-            font-family: system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             margin: 0;
-            background: #f5f5f7;
-            color: #222;
+            background: var(--bg, #f5f5f7);
+            color: var(--text, #222);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        :root {
+            --primary: #1d3557;
+            --secondary: #457b9d;
+            --accent: #a8dadc;
+            --bg: #f5f5f7;
+            --text: #222;
+        }
+
+        .dark-mode {
+            --primary: #a8dadc;
+            --secondary: #1d3557;
+            --accent: #457b9d;
+            --bg: #222831;
+            --text: #f5f5f7;
         }
 
         header {
-            background: linear-gradient(135deg, #1d3557, #457b9d);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 3.5rem 1rem 3rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 4px solid var(--accent);
+            background: white;
         }
 
         .container {
             width: 90%;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
         }
 
         h1 {
             font-size: 2.6rem;
+            margin-bottom: 0.2rem;
         }
 
         h2 {
@@ -39,22 +79,35 @@
         }
 
         a {
-            color: #1d3557;
+            color: var(--primary);
+            transition: color 0.2s;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.04);
+            padding: 0.5rem 0;
+            border-radius: 0 0 12px 12px;
         }
 
         nav a {
             color: white;
             margin-right: 1rem;
             text-decoration: none;
+            font-weight: 500;
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            transition: background 0.2s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background: var(--accent);
+            color: var(--secondary);
         }
 
         .tagline {
             opacity: 0.9;
             margin-top: 0.4rem;
+            font-size: 1.2rem;
         }
 
         .hero-links a {
@@ -65,10 +118,21 @@
             border-radius: 20px;
             color: white;
             text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+            transition: background 0.2s, color 0.2s;
         }
 
         .hero-links a:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0;
         }
 
         .skills-list li {
@@ -78,14 +142,63 @@
             margin: 0.2rem;
             border-radius: 20px;
             border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            font-size: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.2rem;
         }
 
         .card {
             background: white;
-            padding: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
-            margin-bottom: 1rem;
+            padding: 1.2rem 1rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.09);
+            margin-bottom: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+        }
+
+        .dark-mode .card,
+        .dark-mode .skills-list li {
+            background: #23272f;
+            color: #f5f5f7;
+            border-color: #333;
+        }
+
+        .dark-mode nav {
+            background: #1d3557;
+        }
+
+        .dark-mode .card:hover {
+            box-shadow: 0 6px 24px rgba(168, 218, 220, 0.13);
+        }
+
+        .dark-toggle {
+            position: absolute;
+            top: 1.2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dark-toggle:hover {
+            background: var(--primary);
+            color: var(--accent);
         }
 
         footer {
@@ -94,24 +207,43 @@
             margin-top: 3rem;
             color: #555;
         }
+
+        @media (max-width: 700px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+
+            .profile-img {
+                margin-bottom: 1rem;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
         <div class="container">
-            <h1>Dr. Babu Pokhrel</h1>
-            <p class="tagline">Experimental & Computational Physicist · Detector Simulation · Monte Carlo Modeling</p>
-            <p>Philadelphia, PA · <a href="mailto:pokhrelbabu24@gmail.com"
-                    style="color:white;">pokhrelbabu24@gmail.com</a> · +1 267-250-9598</p>
-
-            <div class="hero-links">
-                <a href="YOUR_CV.pdf" target="_blank">CV / Resume</a>
-                <a href="https://github.com/babupo24" target="_blank">GitHub</a>
-                <a href="YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
+            <div class="hero">
+                <div>
+                    <h1>Dr. Babu Pokhrel</h1>
+                    <p class="tagline">Experimental & Computational Physicist · Detector Simulation · Monte Carlo
+                        Modeling
+                    </p>
+                    <p>Philadelphia, PA · <a href="mailto:pokhrelbabu24@gmail.com"
+                            style="color:white;">pokhrelbabu24@gmail.com</a> · +1 267-250-9598
+                    </p>
+                    <div class="hero-links">
+                        <a href="YOUR_CV.pdf" target="_blank">CV / Resume</a>
+                        <a href="https://github.com/babupo24" target="_blank">GitHub</a>
+                        <a href="YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <img src="profile.jpg" alt="Babu Pokhrel" class="profile-img" onerror="this.style.display='none'">
             </div>
-
-            <nav style="margin-top:1.2rem;">
+            <nav>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#experience">Experience</a>
@@ -129,17 +261,16 @@
             <h2>About Me</h2>
             <p>
                 I am a PhD-level experimental and computational physicist specializing in Monte Carlo simulations,
-                charged-particle transport, detector modeling, and high-energy nuclear/particle physics.
-                My work spans GEANT-based detector simulation, signal digitization, ROOT/PyROOT data analysis,
-                and large-scale scientific computing. I have contributed extensively to the
-                STAR and ePIC collaborations, with hands-on expertise in detector operation,
-                data acquisition, and instrument modeling.
+                charged-particle transport, detector modeling, and high-energy nuclear/particle physics. My work spans
+                GEANT-based detector simulation, signal digitization, ROOT/PyROOT data analysis, and large-scale
+                scientific computing. I have contributed extensively to the STAR and ePIC collaborations, with hands-on
+                expertise in detector operation, data acquisition, and instrument modeling.
             </p>
             <p>
-                I am also experienced in Python, C++, MATLAB, TensorFlow/PyTorch, and numerical methods for
-                scientific computing. My background includes thin-film fabrication, material characterization,
-                and device prototyping during my early graduate research. I hold a U.S. Permanent Resident (Green Card)
-                and am open to relocation.
+                I am also experienced in Python, C++, MATLAB, TensorFlow/PyTorch, and numerical methods for scientific
+                computing. My background includes thin-film fabrication, material characterization, and device
+                prototyping during my early graduate research. I hold a U.S. Permanent Resident (Green Card) and am open
+                to relocation.
             </p>
         </section>
 
@@ -163,133 +294,137 @@
         <!-- EXPERIENCE -->
         <section id="experience">
             <h2>Professional Experience</h2>
-
-            <div class="card">
-                <h3>Postdoctoral Researcher — Temple University (Nov 2023 – Aug 2024)</h3>
-                <p>
-                    Developed C++-based digitization algorithms for MPGD detectors, modeling signal formation for the
-                    ePIC experiment.
-                    Simulated charged-particle interactions in detector gas/materials using Monte Carlo and FEM methods.
-                    Contributed to detector design through physics-based modeling and reproducible, version-controlled
-                    software pipelines.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Research Assistant — STAR Collaboration, Temple University (Aug 2019 – May 2023)</h3>
-                <p>
-                    Designed and ran GEANT and PYTHIA simulations to model detector response in proton–proton collisions
-                    at √s = 200 GeV.
-                    Performed high-energy data analysis of pions, muons, and protons, including azimuthal correlations
-                    and cross-section studies.
-                    Operated beamline detectors and electronics during live RHIC runs, ensuring calibration and
-                    real-time monitoring.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Research Assistant (M.Sc.) — Kathmandu University (2012 – 2014)</h3>
-                <p>
-                    Engineered and characterized ZnO thin films and dye-sensitized solar cells (DSSC).
-                    Performed STM, XRD, and optical/electrical analysis to study thin-film behavior under varying
-                    fabrication conditions.
-                </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Postdoctoral Researcher — Temple University (Nov 2023 – Aug 2024)</h3>
+                    <p>
+                        Developed C++-based digitization algorithms for MPGD detectors, modeling signal formation for
+                        the ePIC experiment. Simulated charged-particle interactions in detector gas/materials using
+                        Monte Carlo and FEM methods. Contributed to detector design through physics-based modeling and
+                        reproducible, version-controlled software pipelines.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Research Assistant — STAR Collaboration, Temple University (Aug 2019 – May 2023)</h3>
+                    <p>
+                        Designed and ran GEANT and PYTHIA simulations to model detector response in proton–proton
+                        collisions at √s = 200 GeV. Performed high-energy data analysis of pions, muons, and protons,
+                        including azimuthal correlations and cross-section studies. Operated beamline detectors and
+                        electronics during live RHIC runs, ensuring calibration and real-time monitoring.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Research Assistant (M.Sc.) — Kathmandu University (2012 – 2014)</h3>
+                    <p>
+                        Engineered and characterized ZnO thin films and dye-sensitized solar cells (DSSC). Performed
+                        STM, XRD, and optical/electrical analysis to study thin-film behavior under varying fabrication
+                        conditions.
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- PROJECTS -->
         <section id="projects">
             <h2>Key Projects</h2>
-
-            <div class="card">
-                <h3>MPGD Signal Digitization — ePIC Collaboration</h3>
-                <p>
-                    Built C++/Python frameworks to simulate MPGD signal formation, optimize electronic readout,
-                    and support detector development for the ePIC experiment. Integrated physical models with
-                    multithreaded computation
-                    to enable realistic digitization workflows. :contentReference[oaicite:1]{index=1}
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Dihadron Asymmetry Analysis — STAR Collaboration</h3>
-                <p>
-                    Performed large-scale data analysis of polarized p↑p collisions at RHIC, studying azimuthal
-                    correlations
-                    and extracting spin-dependent asymmetries. Applied Monte Carlo simulations, statistical modeling,
-                    and ROOT-based workflows to achieve high-precision measurements.
-                    :contentReference[oaicite:2]{index=2}
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>GEM Detector Assembly & Prototyping</h3>
-                <p>
-                    Led assembly of a triple-GEM detector prototype, including foil scanning, electrical stability
-                    testing,
-                    gas flow optimization, and background characterization to validate design performance.
-                    :contentReference[oaicite:3]{index=3}
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>ZnO Thin Film Fabrication & DSSC Characterization</h3>
-                <p>
-                    Fabricated ZnO thin films via spray pyrolysis/spin coating and characterized them using
-                    XRD, STM, and optical/electrical measurements. Developed dye-sensitized solar cells achieving
-                    2.7% power conversion efficiency. :contentReference[oaicite:4]{index=4}
-                </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>MPGD Signal Digitization — ePIC Collaboration</h3>
+                    <p>
+                        Built C++/Python frameworks to simulate MPGD signal formation, optimize electronic readout, and
+                        support detector development for the ePIC experiment. Integrated physical models with
+                        multithreaded computation to enable realistic digitization workflows.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Dihadron Asymmetry Analysis — STAR Collaboration</h3>
+                    <p>
+                        Performed large-scale data analysis of polarized p↑p collisions at RHIC, studying azimuthal
+                        correlations and extracting spin-dependent asymmetries. Applied Monte Carlo simulations,
+                        statistical modeling, and ROOT-based workflows to achieve high-precision measurements.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>GEM Detector Assembly & Prototyping</h3>
+                    <p>
+                        Led assembly of a triple-GEM detector prototype, including foil scanning, electrical stability
+                        testing, gas flow optimization, and background characterization to validate design performance.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>ZnO Thin Film Fabrication & DSSC Characterization</h3>
+                    <p>
+                        Fabricated ZnO thin films via spray pyrolysis/spin coating and characterized them using XRD,
+                        STM, and optical/electrical measurements. Developed dye-sensitized solar cells achieving 2.7%
+                        power conversion efficiency.
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- PUBLICATIONS -->
         <section id="publications">
             <h2>Selected Publications</h2>
-
-            <ul>
-                <li>
+            <div class="card-grid">
+                <div class="card">
                     <strong>Measurement of Transverse Spin Dependent Azimuthal Correlations of π⁺π⁻ and Unpolarized
                         Cross-Section in p↑p Collisions at √s = 200 GeV</strong><br>
-                    PoS(SPIN2023)052. :contentReference[oaicite:5]{index=5}
-                </li>
-                <li>
+                    PoS(SPIN2023)052.
+                </div>
+                <div class="card">
                     <strong>Measurement of Transverse Spin Dependent Azimuthal Correlations of Charged Pions in p↑p
                         Collisions</strong><br>
-                    SciPost Phys. Proc. 8:047, 2022. :contentReference[oaicite:6]{index=6}
-                </li>
-                <li>
+                    SciPost Phys. Proc. 8:047, 2022.
+                </div>
+                <div class="card">
                     <strong>Azimuthal Correlations of π⁺π⁻ in p↑p Collisions</strong><br>
-                    JPS Conf. Proc., 37:020121, 2022. :contentReference[oaicite:7]{index=7}
-                </li>
-                <li>
+                    JPS Conf. Proc., 37:020121, 2022.
+                </div>
+                <div class="card">
                     <strong>Optical and Electrical Behavior of ZnO Thin Films</strong><br>
-                    SOJ Mater Sci Eng, 2016. :contentReference[oaicite:8]{index=8}
-                </li>
-                <li>
+                    SOJ Mater Sci Eng, 2016.
+                </div>
+                <div class="card">
                     <strong>Dye Absorbance for DSSC Applications</strong><br>
-                    Advances in Applied Science Research, 2014. :contentReference[oaicite:9]{index=9}
-                </li>
-            </ul>
+                    Advances in Applied Science Research, 2014.
+                </div>
+            </div>
         </section>
 
         <!-- CONTACT -->
         <section id="contact">
             <h2>Contact</h2>
-            <p>
-                Email: <a href="mailto:pokhrelbabu24@gmail.com">pokhrelbabu24@gmail.com</a><br>
-                GitHub: <a href="https://github.com/babupo24" target="_blank">github.com/babupo24</a><br>
-                LinkedIn: <a href="YOUR_LINKEDIN_URL" target="_blank">Your LinkedIn Profile</a>
-            </p>
+            <div class="card" style="max-width:400px;margin:auto;text-align:center;">
+                <p>
+                    <strong>Email:</strong> <a href="mailto:pokhrelbabu24@gmail.com">pokhrelbabu24@gmail.com</a><br>
+                    <strong>GitHub:</strong> <a href="https://github.com/babupo24"
+                        target="_blank">github.com/babupo24</a><br>
+                    <strong>LinkedIn:</strong> <a href="YOUR_LINKEDIN_URL" target="_blank">Your LinkedIn Profile</a>
+                </p>
+            </div>
         </section>
-
     </main>
 
     <footer>
         © <span id="year"></span> Babu Pokhrel
     </footer>
-
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 
 </body>
