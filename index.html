@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Name – Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Your Name</h1>
+            <p class="tagline">Computational Physicist · Data Scientist · Researcher</p>
+            <div class="links">
+                <a href="Your_CV_Link.pdf" target="_blank">CV</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                Short 3–5 sentence bio about who you are, your PhD, your current role,
+                and your main interests (e.g. Monte Carlo simulations, medical imaging,
+                machine learning for radiotherapy, etc.).
+            </p>
+        </section>
+
+        <section id="research">
+            <h2>Research & Projects</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Project / Paper Title</h3>
+                    <p>
+                        2–3 sentences describing what you did, the core idea,
+                        and any key results. Add a link to arXiv/paper if available.
+                    </p>
+                    <a href="#" target="_blank">Read more</a>
+                </article>
+
+                <article class="card">
+                    <h3>Another Project</h3>
+                    <p>
+                        Brief explanation of the project (e.g. auto-contouring with SVMs,
+                        synthetic CT generation, etc.).
+                    </p>
+                    <a href="#" target="_blank">Code / PDF</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <ul class="timeline">
+                <li>
+                    <h3>Role – Organization</h3>
+                    <span class="time">202X – Present</span>
+                    <p>1–2 bullets about what you do, focusing on technical skills and impact.</p>
+                </li>
+                <li>
+                    <h3>Previous Role – Institution</h3>
+                    <span class="time">201X – 202X</span>
+                    <p>Highlight your key responsibilities, results, and tools used.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <ul class="pubs">
+                <li>
+                    <strong>Paper Title</strong><br>
+                    Author1, <em>Your Name</em>, Author3, Journal, Year.
+                    <a href="#" target="_blank">PDF</a>
+                </li>
+                <li>
+                    <strong>Another Paper</strong><br>
+                    etc.
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                Email: <a href="mailto:youremail@example.com">youremail@example.com</a><br>
+                LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">yourprofile</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Your Name</p>
+    </footer>
+
+    <script>
+        // Set current year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
