@@ -2,6 +2,446 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Dr. Babu Pokhrel – Computational Physicist & Scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal website of Dr. Babu Pokhrel, computational physicist and data scientist working on Monte Carlo simulations, medical imaging, and machine learning for radiotherapy.">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f5f5f7;
+        }
+
+        a {
+            color: #1d3557;
+        }
+
+        header.hero {
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            color: #fff;
+            padding: 3.5rem 1rem 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 720px) {
+            .hero-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-text .location {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .hero-links {
+            margin-top: 0.75rem;
+        }
+
+        .hero-links a {
+            display: inline-block;
+            margin: 0.25rem 0.4rem 0.25rem 0;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.7);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+
+        nav {
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.9);
+            margin-right: 0.8rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding-bottom: 2.5rem;
+        }
+
+        section {
+            margin-bottom: 2.4rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.2rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        .two-col {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 780px) {
+            .two-col {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 0.9rem;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .card span.tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            background: #e9f1fb;
+            color: #1d3557;
+            margin-bottom: 0.35rem;
+        }
+
+        .card a {
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        ul.timeline {
+            list-style: none;
+        }
+
+        ul.timeline li {
+            margin-bottom: 1.1rem;
+        }
+
+        ul.timeline h3 {
+            font-size: 1.05rem;
+        }
+
+        .time {
+            font-size: 0.85rem;
+            color: #555;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .pubs {
+            list-style: none;
+        }
+
+        .pubs li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.2rem;
+        }
+
+        .pubs strong {
+            display: block;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+        }
+
+        .skills-list li {
+            background: #fff;
+            border-radius: 999px;
+            padding: 0.2rem 0.7rem;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0 2rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<header class="hero">
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <h1>Dr. Babu Pokhrel</h1>
+            <p class="subtitle">
+                Computational Physicist · Medical Imaging & Monte Carlo · Machine Learning
+            </p>
+            <p class="location">
+                Based in the US · Working at the intersection of physics, software, and AI
+            </p>
+            <div class="hero-links">
+                <!-- Replace the hrefs below with your real links/filenames -->
+                <a href="Babu_Pokhrel_CV.pdf" target="_blank">CV / Resume</a>
+                <a href="https://github.com/babupo24" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                <!-- Optional: add Google Scholar link when ready -->
+                <!-- <a href="https://scholar.google.com" target="_blank">Google Scholar</a> -->
+            </div>
+        </div>
+        <div>
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#research">Research & Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- ABOUT -------------------------------------------------------------->
+    <section id="about">
+        <div class="two-col">
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I am a computational physicist and data scientist with a PhD in Physics from Temple
+                    University. My work sits at the intersection of Monte Carlo simulations, medical
+                    imaging, and machine learning, with a strong focus on radiotherapy applications.
+                </p>
+                <p>
+                    Over the last several years I have worked on charged-particle transport modeling,
+                    detector simulations, auto-contouring for MR-only workflows, and synthetic CT
+                    generation. I enjoy building robust software pipelines that connect physical models,
+                    numerical methods, and practical clinical workflows.
+                </p>
+                <p>
+                    I also have extensive teaching experience in physics and mathematics, and I enjoy
+                    explaining complex ideas in clear, structured ways – whether in the classroom,
+                    documentation, or code.
+                </p>
+            </div>
+            <div>
+                <h2>Quick Facts</h2>
+                <ul class="skills-list">
+                    <li>Monte Carlo dose calculation</li>
+                    <li>Medical imaging (MR / CT)</li>
+                    <li>Auto-contouring & sCT</li>
+                    <li>C++ · Python · MATLAB</li>
+                    <li>High-performance computing</li>
+                    <li>ML / SVM / scikit-learn</li>
+                    <li>Teaching & mentoring</li>
+                    <li>Radiotherapy workflows</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & PROJECTS ----------------------------------------------->
+    <section id="research">
+        <h2>Research & Selected Projects</h2>
+        <div class="cards">
+            <article class="card">
+                <span class="tag">Monte Carlo · Medical Physics</span>
+                <h3>Monte Carlo Modeling for MR-Guided Radiotherapy</h3>
+                <p>
+                    Development and optimization of Monte Carlo simulation modules for dose
+                    calculation and beam modeling in MR-guided radiotherapy systems. Work includes
+                    charged-particle transport, multiple scattering models, and performance tuning on
+                    multi-core and HPC platforms.
+                </p>
+                <!-- <a href="#" target="_blank">More details</a> -->
+            </article>
+
+            <article class="card">
+                <span class="tag">ML · Auto-contouring</span>
+                <h3>Kidney Autocontouring & Adaptive SVM Models</h3>
+                <p>
+                    Designed and analyzed SVM-based and multi-kernel methods for kidney
+                    autocontouring on MR images, including edge-aware filtering, diffusion-based
+                    regularization, and probabilistic modeling of segmentation outputs.
+                </p>
+                <!-- <a href="#" target="_blank">Related paper/code</a> -->
+            </article>
+
+            <article class="card">
+                <span class="tag">Synthetic CT · MR-only</span>
+                <h3>Synthetic CT Generation for MR-Only Workflows</h3>
+                <p>
+                    Worked on converting MR image volumes and structure sets into synthetic CT
+                    representations for radiotherapy planning. Involved DICOM processing, image
+                    registration, feature engineering, and supervised learning for HU prediction.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Collider Physics</span>
+                <h3>Dihadron Correlations at STAR</h3>
+                <p>
+                    Contributed to the analysis of unpolarized dihadron cross-sections and azimuthal
+                    correlation asymmetries in proton-proton collisions at √s = 200 GeV within the
+                    STAR Collaboration. Work included detector calibration, large-scale data processing,
+                    and statistical analysis of hadronic observables.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE --------------------------------------------------------->
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul class="timeline">
+            <li>
+                <h3>Computational / Medical Physics – Industry Role</h3>
+                <span class="time">2025 – Present</span>
+                <p>
+                    Working on Monte Carlo-based dose calculation, beam modeling, and imaging-related
+                    algorithms for MR-guided radiotherapy systems. Responsibilities include simulation
+                    development in C++, performance optimization on multi-core systems, and integration
+                    with clinical workflows.
+                </p>
+            </li>
+            <li>
+                <h3>Postdoctoral / Research Associate – Temple University</h3>
+                <span class="time">2019 – 2025</span>
+                <p>
+                    Research in experimental and computational nuclear/particle physics and detector
+                    development, with projects including:
+                </p>
+                <ul style="margin-left:1.1rem; margin-top:0.2rem;">
+                    <li>Micro-Pattern Gaseous Detector (MPGD) signal digitization for the EPIC Collaboration.</li>
+                    <li>Unpolarized dihadron cross-section and azimuthal correlation measurements at STAR.</li>
+                    <li>Large-scale data analysis, detector calibration, and simulation workflows.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Teaching – Physics & Mathematics</h3>
+                <span class="time">Several years</span>
+                <p>
+                    Taught undergraduate physics labs and high school/college-level mathematics (algebra,
+                    geometry, statistics & probability). Experience includes developing problem sets,
+                    explaining statistical concepts, and supporting a diverse student population toward
+                    competitive exams and STEM careers.
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- PUBLICATIONS (SIMPLE PLACEHOLDER) ---------------------------------->
+    <section id="publications">
+        <h2>Selected Publications & Contributions</h2>
+        <p>
+            This is a short placeholder list – feel free to replace with your official publication list
+            or link to a PDF / Google Scholar profile.
+        </p>
+        <ul class="pubs">
+            <li>
+                <strong>Micro-Pattern Gaseous Detector Signal Digitization for EPIC</strong>
+                <span>
+                    B. Pokhrel et al. Work on digitization and modeling of MPGD response for the EPIC
+                    experiment, including Monte Carlo simulation and reconstruction studies.
+                </span>
+            </li>
+            <li>
+                <strong>Dihadron Correlation Measurements at STAR</strong>
+                <span>
+                    Analysis of unpolarized dihadron cross-sections and azimuthal correlations in pp
+                    collisions at √s = 200 GeV, within the STAR Collaboration.
+                </span>
+            </li>
+            <li>
+                <strong>Autocontouring and Synthetic CT Methods for MR-Based Planning</strong>
+                <span>
+                    Method development work on SVM-based autocontouring and machine learning models
+                    for MR-to-CT mapping in radiotherapy planning pipelines.
+                </span>
+            </li>
+        </ul>
+        <!-- Optional: link to full CV or publications PDF -->
+        <!-- <p>Full publication list: <a href="Babu_Pokhrel_Publications.pdf" target="_blank">PDF</a></p> -->
+    </section>
+
+    <!-- CONTACT ------------------------------------------------------------>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            The best way to reach me is by email. You can also find me on GitHub and LinkedIn.
+        </p>
+        <p>
+            Email:
+            <!-- Replace with your real email -->
+            <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+            GitHub:
+            <a href="https://github.com/babupo24" target="_blank">github.com/babupo24</a><br>
+            LinkedIn:
+            <!-- Replace with your real LinkedIn URL -->
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn profile</a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    © <span id="year"></span> Babu Pokhrel
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>Your Name – Personal Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
